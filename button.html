@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button States</title>
+    <style>
+      
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn:active {
+            background-color: #004080;
+            transform: scale(0.98);
+        }
+
+        .btn:focus {
+            outline: 2px solid #80bdff;
+            outline-offset: 2px;
+        }
+
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+       
+        .btn.active {
+            background-color: #004080;
+            transform: scale(0.98);
+        }
+
+        
+        .btn.inactive {
+            background-color: #6c757d;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn" id="toggleBtn">Toggle State</button>
+    <button class="btn" id="dynamicBtn">Dynamic Button</button>
+    <button class="btn" disabled>Disabled</button>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const dynamicBtn = document.getElementById('dynamicBtn');
+
+        toggleBtn.addEventListener('click', () => {
+            if (dynamicBtn.classList.contains('active')) {
+                dynamicBtn.classList.remove('active');
+                dynamicBtn.classList.add('inactive');
+            } else {
+                dynamicBtn.classList.remove('inactive');
+                dynamicBtn.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
